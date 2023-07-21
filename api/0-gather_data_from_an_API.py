@@ -14,6 +14,7 @@ def get_employee_todos(employee_id):
     todos = requests.get(url_todos)
     return todos.json()
 
+
 def get_employee_name(employee_id):
     """gets the employee name"""
     url_name = f"{url}/users/{employee_id}"
