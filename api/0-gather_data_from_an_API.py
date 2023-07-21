@@ -35,7 +35,8 @@ def get_completed_tasks(tasks):
 
 def print_employee_tasks(employeeName, completedTasks, totalTasks):
     """prints employee tasks"""
-    print(f"Employee {employeeName} is done with tasks({len(completedTasks)}/{totalTasks}):")
+    print(f"Employee {employeeName} is done with\
+          tasks({len(completedTasks)}/{totalTasks}):")
     for task in completedTasks:
         task_title = task.get("title")
         print(f"\t {task_title}")
