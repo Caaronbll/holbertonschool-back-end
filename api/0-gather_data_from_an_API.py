@@ -8,6 +8,7 @@ import sys
 
 url = "https://jsonplaceholder.typicode.com"
 
+
 def get_employee_todos(employee_id):
     """gets the employye tasks"""
     url_todos = f"{url}/users/{employee_id}/todos"
