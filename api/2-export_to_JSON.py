@@ -41,6 +41,7 @@ def print_employee_tasks(employeeName, completedTasks, totalTasks):
     for task in completedTasks:
         print("\t {}".format(task.get("title")))
 
+
 def export_to_json(employeeId, employeeName, completedTasks):
     data_dict = {str(employeeId): []}
 
@@ -62,4 +63,4 @@ if __name__ == "__main__":
     tasks = get_employee_todos(employee_id)
     employeeName = get_employee_name(employee_id)
     completedTasks = get_completed_tasks(tasks)
-    print_employee_tasks(employeeName, completedTasks, len(tasks))
+    export_to_json(employeeName, completedTasks, len(tasks))
