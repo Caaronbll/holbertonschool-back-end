@@ -21,7 +21,7 @@ def get_employee_name(employee_id):
     """gets the employee name"""
     url_name = f"{url}/users/{employee_id}"
     user_data = requests.get(url_name).json()
-    employee_name = user_data.get("name")
+    employee_name = user_data.get("username")
     return employee_name
 
 
