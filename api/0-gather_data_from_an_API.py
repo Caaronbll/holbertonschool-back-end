@@ -6,7 +6,7 @@ about his/her TODO list progress"""
 import requests
 import sys
 
-url = "https://jsonplaceholder.typicode.com/"
+url = "https://jsonplaceholder.typicode.com"
 
 def get_employee_todos(employee_id):
     """gets the employye tasks"""
@@ -17,8 +17,10 @@ def get_employee_todos(employee_id):
 def get_employee_name(employee_id):
     """gets the employee name"""
     url_name = f"{url}/users/{employee_id}"
-    employee_name = requests.get(url_name)
-    return employee_name.json().get("name")
+    user_data = requests.get(url_name).json()
+    employee_name = user_data.get("name")
+    return employee_name
+
 
 def get_completed_tasks(tasks):
     """gets the completed tasks of the employee"""
@@ -28,12 +30,14 @@ def get_completed_tasks(tasks):
             completed_tasks.append(task)
     return completed_tasks
 
+
 def print_employee_tasks(employeeName, completedTasks, totalTasks):
     """prints employee tasks"""
     print(f"Employee {employeeName} is done with tasks({len(completedTasks)}/{totalTasks}):")
     for task in completedTasks:
         task_title = task.get("title")
         print(f"\t {task_title}")
+
 
 if __name__ == "__main__":
     employee_id = sys.argv[1]
