@@ -1,9 +1,10 @@
 #!/usr/bin/python3
 """exporting API data to CSV file"""
 
+import csv
 import requests
 import sys
-import csv
+
 
 url = "https://jsonplaceholder.typicode.com"
 
@@ -30,6 +31,7 @@ def get_completed_tasks(tasks):
         if task.get("completed"):
             completed_tasks.append(task)
     return completed_tasks
+
 
 def print_employee_tasks(employeeName, completedTasks, totalTasks):
     """prints employee tasks"""
