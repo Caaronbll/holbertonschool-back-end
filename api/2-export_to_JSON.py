@@ -25,15 +25,6 @@ def get_employee_name(employee_id):
     return employee_name
 
 
-def get_completed_tasks(tasks):
-    """gets the completed tasks of the employee"""
-    completed_tasks = []
-    for task in tasks:
-        if task.get("completed"):
-            completed_tasks.append(task)
-    return completed_tasks
-
-
 def print_employee_tasks(employeeName, completedTasks, totalTasks):
     """prints employee tasks"""
     print("Employee {} is done with tasks({}/{}):"
@@ -62,5 +53,4 @@ if __name__ == "__main__":
     employee_id = sys.argv[1]
     tasks = get_employee_todos(employee_id)
     employeeName = get_employee_name(employee_id)
-    completedTasks = get_completed_tasks(tasks)
-    export_to_json(employeeName, completedTasks, len(tasks))
+    export_to_json(employee_id, employeeName, tasks)
